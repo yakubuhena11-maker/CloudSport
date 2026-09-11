@@ -1,0 +1,27 @@
+:root {
+  /* Color */
+  --ink: #0F1B2D;
+  --overcast: #EDF1F5;
+  --surface: #FFFFFF;
+  --sunbreak: #E8A33D;   /* high confidence */
+  --steel: #4C6B8A;      /* moderate / uncertain */
+  --storm: #B5533C;      /* low confidence / upset risk */
+
+  /* Type */
+  --font-display: 'Newsreader', serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+
+  /* Layout */
+  --line-max: 72ch;
+  --radius-card: 6px;
+}
+
+body {
+  background: var(--overcast);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+}
