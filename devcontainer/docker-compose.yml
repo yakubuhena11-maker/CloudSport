@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/javascript-node:20
+    volumes:
+      - ../..:/workspace:cached
+    command: sleep infinity
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cloudsport
+      POSTGRES_PASSWORD: cloudsport
+      POSTGRES_DB: cloudsport
+    volumes:
+      - cloudsport-db-data:/var/lib/postgresql/data
+
+volumes:
+  cloudsport-db-data:
