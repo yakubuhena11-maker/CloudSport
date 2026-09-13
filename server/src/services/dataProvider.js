@@ -1,9 +1,10 @@
 // dataProvider.js
 // Wraps API-Football calls. Phase 1 scope: fixtures + basic stats for one league.
+// Uses a direct API-Sports account (dashboard.api-football.com), not RapidAPI —
+// auth header is x-apisports-key and the base URL is v3.football.api-sports.io.
 
-const BASE_URL = process.env.API_FOOTBALL_BASE_URL;
+const BASE_URL = process.env.API_FOOTBALL_BASE_URL || 'https://v3.football.api-sports.io';
 const API_KEY = process.env.API_FOOTBALL_KEY;
-const API_HOST = process.env.API_FOOTBALL_HOST;
 
 // Premier League = league id 39 in API-Football
 const DEFAULT_LEAGUE_ID = 39;
@@ -14,8 +15,7 @@ async function apiFootballGet(path, params = {}) {
 
   const response = await fetch(url, {
     headers: {
-      'x-rapidapi-key': API_KEY,
-      'x-rapidapi-host': API_HOST,
+      'x-apisports-key': API_KEY,
     },
   });
 
